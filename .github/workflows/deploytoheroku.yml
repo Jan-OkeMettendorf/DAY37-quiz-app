@@ -1,4 +1,4 @@
-name: Deploy quiz-app1 to Heroku
+name: Deploy quiz-app to Heroku
 
 on:
   push:
