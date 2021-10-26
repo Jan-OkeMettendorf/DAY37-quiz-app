@@ -1,20 +1,22 @@
 import { addQuestion, getQuestions } from '../service/devQuizApiService'
-import { useEffect, useState } from 'react'
+import {useContext, useEffect, useState} from 'react'
+import {AuthContext} from "../context/AuthProvider";
 
 export default function useQuestions() {
   const [questions, setQuestions] = useState([])
+  const {token} = useContext(AuthContext)
 
-  const getAllQuestions = () => {
-    getQuestions().then(result => setQuestions(result))
+  const getAllQuestions = (token) => {
+    getQuestions(token).then(result => setQuestions(result))
         .catch(err => console.error(err))
   }
 
   useEffect(() => {
-    getAllQuestions()
-  }, [])
+    getAllQuestions(token)
+  }, [token])
 
   const saveQuestion = newQuestion => {
-    addQuestion(newQuestion).then(getAllQuestions)
+    addQuestion(newQuestion, token).then(getAllQuestions)
   }
   return {
     getAllQuestions,

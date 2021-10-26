@@ -7,6 +7,7 @@ function Navbar() {
             <NavItem to="/">Home</NavItem>
             <NavItem to="/add-question">Add Question</NavItem>
             <NavItem to="/play">Play</NavItem>
+            <NavItem to="/login">Login</NavItem>
         </NavBarContainer>
     )
 }

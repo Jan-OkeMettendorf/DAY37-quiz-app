@@ -1,21 +1,29 @@
 import axios from 'axios'
 
-export function getQuestions() {
+const getHeader = (token) => {
+  return {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  }
+}
+
+export function getQuestions(token) {
   return axios
-    .get('/api/question')
+    .get('/api/question', getHeader(token))
     .then(response => response.data)
 }
 
-export function addQuestion(newQuestion) {
+export function addQuestion(newQuestion, token) {
   return axios
-    .post('/api/question', newQuestion)
+    .post('/api/question', newQuestion, getHeader(token))
     .then(response => response.data)
     .catch(console.error)
 }
 
-export function getQuestion(){
+export function getQuestion(token){
   return axios
-      .get('/api/question/quiz')
+      .get('/api/question/quiz', getHeader(token))
       .then(response => response.data)
       .catch(console.error)
 }
