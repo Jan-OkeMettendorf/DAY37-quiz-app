@@ -65,6 +65,6 @@ jobs:
       - name: Login to heroku
         run: heroku container:login
       - name: Push docker container
-        run: heroku container:push web -a super-super-fancy-quiz-ap
+        run: heroku container:push web -a super-super-fancy-quiz-app
       - name: Deploy docker container
         run: heroku container:release web -a super-super-fancy-quiz-app
