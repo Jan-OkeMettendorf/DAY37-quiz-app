@@ -6,7 +6,7 @@ export default function useQuestions() {
   const [questions, setQuestions] = useState([])
   const {token} = useContext(AuthContext)
 
-  const getAllQuestions = () => {
+  const getAllQuestions = (token) => {
     getQuestions(token).then(result => setQuestions(result))
         .catch(err => console.error(err))
   }
