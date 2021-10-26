@@ -1,4 +1,4 @@
-name: Deploy TodoApp to Heroku
+name: Deploy quiz-app to Heroku
 
 on:
   push:
@@ -53,7 +53,7 @@ jobs:
     needs: build-backend
     environment:
       name: production-heroku
-      url: https://rem-21-4-quiz.herokuapp.com/
+      url: https://super-super-fancy-quiz-app.herokuapp.com/
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     steps:
@@ -65,6 +65,6 @@ jobs:
       - name: Login to heroku
         run: heroku container:login
       - name: Push docker container
-        run: heroku container:push web -a rem-21-4-quiz
+        run: heroku container:push web -a super-super-fancy-quiz-app
       - name: Deploy docker container
-        run: heroku container:release web -a rem-21-4-quiz
+        run: heroku container:release web -a super-super-fancy-quiz-app
